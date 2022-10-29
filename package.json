@@ -1,0 +1,90 @@
+{
+  "name": "my-project",
+  "version": "0.0.1",
+  "description": "Project created to serve as a boilerplate for components projects.",
+  "license": "MIT",
+  "main": "bin/entry-point.js",
+  "module": "bin/entry-point.es.js",
+  "files": [
+    "bin"
+  ],
+  "type": "module",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "compile": "rollup -c",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:check": "gts lint",
+    "lint:fix": "gts fix"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "typescript": "4.4.3",
+    "web-vitals": "^2.1.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/rollup-plugin-peer-deps-external": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "eslint": "^8.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "gts": "^3.1.1",
+    "rollup": "^3.2.3",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.34.1"
+  },
+  "prettier": "gts/.prettierrc.json",
+  "eslintConfig": {
+    "extends": "./node_modules/gts/",
+    "plugins": [
+      "simple-import-sort"
+    ],
+    "rules": {
+      "node/no-unpublished-import": 0,
+      "simple-import-sort/exports": "error",
+      "simple-import-sort/imports": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error"
+      ],
+      "max-classes-per-file": [
+        "error",
+        1
+      ]
+    },
+    "ignorePatterns": [
+      "node_modules/",
+      "coverage*/",
+      "build/",
+      "bin/"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
