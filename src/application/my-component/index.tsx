@@ -1,56 +1,51 @@
 import './style.scss';
 
-import {ChangeEvent, Component} from 'react';
+import {ChangeEvent, useState} from 'react';
 
 import {MyComponentProps} from './props';
-import {InitialMyComponentState, MyComponentState} from './state';
+import {InitialMyComponentState} from './state';
 
-class MyComponent extends Component<MyComponentProps, MyComponentState> {
-  constructor(props: MyComponentProps) {
-    super(props);
-    this.state = InitialMyComponentState;
-  }
+const MyComponent = (props: MyComponentProps) => {
+  const [state, setState] = useState(InitialMyComponentState);
 
-  private handleChange(
+  const handleChange = (
     field: string,
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  ) => {
     e.preventDefault();
 
     const targetState = {
-      ...this.state,
+      ...state,
       [field]: e.target.value,
     };
 
-    this.setState(targetState);
-  }
+    setState(targetState);
+  };
 
-  private callOutput(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  const callOutput = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
-    this.props.output(this.state);
-  }
+    props.output(state);
+  };
 
-  public render() {
-    return (
-      <div className="my-component">
-        <h1>Hello World</h1>
+  return (
+    <div className="my-component">
+      <h1>Hello World</h1>
 
-        <h2>{this.props.input}</h2>
+      <h2>{props.input}</h2>
 
-        <input
-          value={this.state.example}
-          onChange={e => this.handleChange('example', e)}
-          tabIndex={1}
-          type="text"
-        />
+      <input
+        value={state.example}
+        onChange={e => handleChange('example', e)}
+        tabIndex={1}
+        type="text"
+      />
 
-        <button onClick={e => this.callOutput(e)} type="submit">
-          Call Output
-        </button>
-      </div>
-    );
-  }
-}
+      <button onClick={e => callOutput(e)} type="submit">
+        Call Output
+      </button>
+    </div>
+  );
+};
 
 export default MyComponent;
