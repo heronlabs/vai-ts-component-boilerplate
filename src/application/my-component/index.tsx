@@ -1,9 +1,8 @@
-import './style.scss';
-
 import {ChangeEvent, useState} from 'react';
 
 import {MyComponentProps} from './props';
 import {InitialMyComponentState} from './state';
+import * as S from './style';
 
 const MyComponent = (props: MyComponentProps) => {
   const [state, setState] = useState(InitialMyComponentState);
@@ -29,7 +28,7 @@ const MyComponent = (props: MyComponentProps) => {
   };
 
   return (
-    <div className="my-component">
+    <S.MyComponent>
       <h1>Hello World</h1>
 
       <h2>{props.input}</h2>
@@ -44,7 +43,7 @@ const MyComponent = (props: MyComponentProps) => {
       <button onClick={e => callOutput(e)} type="submit">
         Call Output
       </button>
-    </div>
+    </S.MyComponent>
   );
 };
 
