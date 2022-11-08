@@ -4,6 +4,7 @@ import del from 'rollup-plugin-delete';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
+import {createTransformer} from 'typescript-plugin-styled-components';
 
 export default {
   input: 'src/entry-point.ts',
@@ -27,6 +28,11 @@ export default {
     typescript({
       tsconfig: 'tsconfig.bin.json',
       useTsconfigDeclarationDir: true,
+      transformers: [
+        () => ({
+          before: [createTransformer()],
+        }),
+      ],
     }),
     postcss(),
   ],
