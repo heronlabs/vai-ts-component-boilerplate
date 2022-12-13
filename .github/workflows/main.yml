@@ -1,6 +1,7 @@
 name: Build Component Stack
 
 on:
+  - push
   - workflow_dispatch
 
 jobs:
